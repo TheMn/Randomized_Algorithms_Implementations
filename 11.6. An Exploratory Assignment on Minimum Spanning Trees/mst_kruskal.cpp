@@ -1,7 +1,11 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-ofstream output("res.csv");
+ofstream output("result.csv");
+
+double k(int n){
+    return 0.04 + pow(0.992, n)/(pow(n, 0.05) * log(n)/log(4.5));
+}
 
 struct Edge{
     int u, v;
@@ -50,7 +54,8 @@ void make_test(int test_size){
     for(int i=0; i<test_size; i++){
         for(int j=i+1; j<test_size; j++){
             double rnd = distribution(generator);
-            graph.push_back((Edge){i, j, rnd});
+            if(rnd <= k(test_size))
+                graph.push_back((Edge){i, j, rnd});
 
             // cerr << i << '-' << j << ": " << rnd << '\n';
         }
@@ -74,9 +79,9 @@ void make_test(int test_size){
 }
 
 int main(){
-    // int n_test[]={16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192};
-    // for(auto test_size: n_test){
-    for(int test_size=1024; test_size<=1024; test_size++){
+    int n_test[]={16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192};
+    for(auto test_size: n_test){
+    // for(int test_size=2; test_size<=1024; test_size++){
         for(int i=0; i<20; i++){
             make_test(test_size);
         }
