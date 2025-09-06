@@ -39,3 +39,17 @@ g++ "11.6. An Exploratory Assignment on Minimum Spanning Trees/mst_kruskal.cpp" 
 ```
 
 This will compile the program and run the `main` function, which runs a series of tests with different numbers of vertices and writes the results to `result.csv`.
+
+### Analysis and Conclusion
+
+The `11.6. An Exploratory Assignment on Minimum Spanning Trees/conclusion.ipynb` notebook contains a detailed analysis of the results from the MST experiment.
+
+The notebook uses Python libraries such as `pandas`, `matplotlib`, and `numpy` to:
+- Load the experimental data from the generated `result.csv` file.
+- Plot the weight of the largest edge in the MST against the number of vertices.
+- Compare the experimental results with theoretical bounds.
+- Analyze the average execution time and total cost of the MST for different graph sizes.
+
+The key findings from the analysis are:
+- The average cost of the MST remains relatively stable (around 1.2) as the number of vertices increases.
+- The execution time for the algorithm increases with the number of vertices, as expected.

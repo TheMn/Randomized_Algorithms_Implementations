@@ -6,7 +6,7 @@ using namespace std;
 /**
  * @brief Generates a random permutation of numbers from 1 to n.
  * @param n The upper bound of the numbers to be permuted.
- * @return A pointer to an array containing the permutation.
+ * @return A pointer to a dynamically allocated array containing the permutation. The caller is responsible for deallocating this memory using `delete[]`.
  * @note The time complexity of this function is O(n log n).
  */
 int* perm_nlogn(int n){
@@ -26,7 +26,7 @@ int* perm_nlogn(int n){
 /**
  * @brief Generates a random permutation of numbers from 1 to n.
  * @param n The upper bound of the numbers to be permuted.
- * @return A pointer to an array containing the permutation.
+ * @return A pointer to a dynamically allocated array containing the permutation. The caller is responsible for deallocating this memory using `delete[]`.
  * @note The time complexity of this function is O(n).
  */
 int* perm_n(int n){
@@ -47,7 +47,7 @@ int* perm_n(int n){
  * @brief Generates a random permutation of k numbers from 1 to n.
  * @param n The upper bound of the numbers to be permuted.
  * @param k The number of elements in the permutation.
- * @return A pointer to an array containing the permutation.
+ * @return A pointer to a dynamically allocated array containing the permutation. The caller is responsible for deallocating this memory using `delete[]`.
  * @note The time complexity of this function is O(k).
  */
 int* perm_k(int n, int k=3){
@@ -69,6 +69,10 @@ int* perm_k(int n, int k=3){
     return result;
 }
 
+/**
+ * @brief The main function to demonstrate the permutation generation.
+ * @return 0 on successful execution.
+ */
 int main(){
     srand(time(0));
 

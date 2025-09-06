@@ -16,6 +16,7 @@ double k(int n){
 /**
  * @brief Represents an edge in a graph.
  * Contains the two vertices of the edge and its weight.
+ * The struct uses member-wise initialization.
  */
 struct Edge{
     int u, v; ///< The vertices of the edge.
@@ -104,6 +105,10 @@ void make_test(int test_size){
                 static_cast<double>((end-start))/CLOCKS_PER_SEC << '\n'; // n, total, max, time
 }
 
+/**
+ * @brief The main function to run the MST experiment.
+ * @return 0 on successful execution.
+ */
 int main(){
     int n_test[]={16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192};
     for(auto test_size: n_test){
