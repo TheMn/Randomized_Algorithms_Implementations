@@ -3,6 +3,12 @@ using namespace std;
 
 #define lenOf(x) sizeof(x)/sizeof(x[0])
 
+/**
+ * @brief Generates a random permutation of numbers from 1 to n.
+ * @param n The upper bound of the numbers to be permuted.
+ * @return A pointer to an array containing the permutation.
+ * @note The time complexity of this function is O(n log n).
+ */
 int* perm_nlogn(int n){
     vector<pair<int, int> > numbers;
     for(int i=0; i<n; i++) // O(n)
@@ -17,6 +23,12 @@ int* perm_nlogn(int n){
     return result;
 }
 
+/**
+ * @brief Generates a random permutation of numbers from 1 to n.
+ * @param n The upper bound of the numbers to be permuted.
+ * @return A pointer to an array containing the permutation.
+ * @note The time complexity of this function is O(n).
+ */
 int* perm_n(int n){
     int* result = new int[n];
     for(int i=0; i<n; i++) // O(n)
@@ -31,6 +43,13 @@ int* perm_n(int n){
     return result;
 }
 
+/**
+ * @brief Generates a random permutation of k numbers from 1 to n.
+ * @param n The upper bound of the numbers to be permuted.
+ * @param k The number of elements in the permutation.
+ * @return A pointer to an array containing the permutation.
+ * @note The time complexity of this function is O(k).
+ */
 int* perm_k(int n, int k=3){
     int j, idx=0;
     int* result = new int [k];

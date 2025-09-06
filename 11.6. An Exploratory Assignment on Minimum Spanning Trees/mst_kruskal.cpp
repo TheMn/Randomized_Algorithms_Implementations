@@ -3,19 +3,40 @@ using namespace std;
 
 ofstream output("result.csv");
 
+/**
+ * @brief A function that calculates a value based on the input n.
+ * This function's purpose is likely tied to the specific exploratory assignment.
+ * @param n An integer input.
+ * @return A double value calculated based on n.
+ */
 double k(int n){
     return 0.04 + pow(0.992, n)/(pow(n, 0.05) * log(n)/log(4.5));
 }
 
+/**
+ * @brief Represents an edge in a graph.
+ * Contains the two vertices of the edge and its weight.
+ */
 struct Edge{
-    int u, v;
-    double weight;
+    int u, v; ///< The vertices of the edge.
+    double weight; ///< The weight of the edge.
 
+    /**
+     * @brief Overloads the less than operator to compare edges by weight.
+     * @param edge The other edge to compare to.
+     * @return True if this edge's weight is less than the other edge's weight, false otherwise.
+     */
     bool operator<(const Edge& edge){
         return weight < edge.weight;
     }
 };
 
+/**
+ * @brief Finds the Minimum Spanning Tree of a graph using Kruskal's algorithm.
+ * @param edges A vector of the edges in the graph.
+ * @param n_vertices The number of vertices in the graph.
+ * @return A tuple containing the total weight of the MST, the weight of the largest edge in the MST, and a vector of the edges in the MST.
+ */
 tuple<double, double, vector<Edge> > mst_kruskal(vector<Edge> edges, int n_vertices){
     vector<int> forest_label(n_vertices);
     iota(forest_label.begin(), forest_label.end(), 0);
@@ -44,6 +65,11 @@ tuple<double, double, vector<Edge> > mst_kruskal(vector<Edge> edges, int n_verti
     return make_tuple(total, max_edge, mst);
 }
 
+/**
+ * @brief Runs a single test case for the MST algorithm.
+ * Generates a random graph, runs Kruskal's algorithm, and writes the results to a CSV file.
+ * @param test_size The number of vertices in the test graph.
+ */
 void make_test(int test_size){
     random_device randomDevice;
     default_random_engine generator(randomDevice());
